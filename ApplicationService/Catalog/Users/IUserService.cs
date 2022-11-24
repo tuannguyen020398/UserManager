@@ -1,5 +1,8 @@
-﻿using ApplicationService.Model.UserModel;
+﻿using ApplicationService.Common;
+using ApplicationService.Model.UserModel;
+using ApplicationService.Resource;
 using BE.DAL.Entities;
+using BE.DAL.ModelPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +13,10 @@ namespace ApplicationService.Catalog.Users
 {
     public interface IUserService
     {
-        Task<long> Create(CreateUserModel request);
+        Task<ApiResult<bool>> Create(CreateUserModel request);
         Task<List<ViewUserModel>> GetAll();
-        Task<long> Update(UpdateUserModel request);
+        Task<FilterResult<UserModelPading>> GetPading(FilterResource filterResource);
+        Task<ApiResult<bool>> Update(long id,UpdateUserModel request);
         Task<User> GetByid(long id);
         Task<bool> Remove(long id);
     }

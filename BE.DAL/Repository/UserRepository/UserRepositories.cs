@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace BE.DAL.Repository.UserRepository
 {
-    public class UserRepositories:GenericRepository<User,SystemDbContext>,IUserRepositories
+    public class UserRepositories : GenericRepository<User,SystemDbContext>,IUserRepositories
     {
-        public UserRepositories(SystemDbContext context, IHttpContextAccessor httpContextAccessor,IMapper mapper) : base(context, mapper) 
+        public UserRepositories(SystemDbContext context,IMapper mapper) : base(context, mapper) 
         { }
         private SystemDbContext SystemDbContext
         {

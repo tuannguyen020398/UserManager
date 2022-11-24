@@ -16,6 +16,7 @@ namespace BE.DAL.BaserRepository
         Task AddAsync(TEntity entity);
         void Remove(TEntity entity);
         FilterResult<TResource> Filter<TResource>(PagingParam<TResource> pagingParams, params Expression<Func<TResource, bool>>[] predicates) where TResource : class;
+
         void UpdateAuditLog(TEntity entity, bool isUpdateCreated = false);
         TEntity GetById(params object[] keyValues);
         Task AddAsync<Resource>(Resource resource);

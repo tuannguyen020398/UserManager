@@ -13,3 +13,5 @@ D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ref\Applicatio
 D:\Demo\ApplicationManageUser\ApplicationService\bin\Debug\net6.0\BE.DAL.dll
 D:\Demo\ApplicationManageUser\ApplicationService\bin\Debug\net6.0\BE.DAL.pdb
 D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ApplicationService.csproj.CopyComplete
+D:\Demo\ApplicationManageUser\ApplicationService\bin\Debug\net6.0\Utilities.dll
+D:\Demo\ApplicationManageUser\ApplicationService\bin\Debug\net6.0\Utilities.pdb

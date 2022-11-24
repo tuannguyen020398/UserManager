@@ -1,7 +1,10 @@
-﻿using ApplicationService.Model.UserModel;
+﻿using ApplicationService.Common;
+using ApplicationService.Model.UserModel;
+using ApplicationService.Resource;
 using AutoMapper;
 using BE.DAL.EF;
 using BE.DAL.Entities;
+using BE.DAL.ModelPages;
 using BE.DAL.Repository.UserRepository;
 using BE.DAL.Utility;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Utilities.Exceptions;
 
 namespace ApplicationService.Catalog.Users
 {
@@ -33,20 +37,47 @@ namespace ApplicationService.Catalog.Users
             
         }
 
-        public async Task<long> Create(CreateUserModel request)
+        public async Task<ApiResult<bool>> Create(CreateUserModel request)
         {
+            var user = _context.Users.FirstOrDefault(x => x.Email == request.Email);
+            if (user != null) return new ApiErrorResult<bool>("Email đã tồn tại");
+            var userphone = _context.Users.FirstOrDefault(x => x.PhoneNumber == request.PhoneNumber);
+            if (userphone != null) return new ApiErrorResult<bool>("Phonenumber đã tồn tại");
             User result = new User();
             try
             {
-                result = _mapper.Map<CreateUserModel,User>(request,result);
+                result = _mapper.Map<CreateUserModel, User>(request, result);
                 await _userRepositories.AddAsync(result);
-                await BuildUrl(result);
+                await BuildUrl(result);               
             }
             catch (Exception ex)
             {
                 _logger.Error(ex);
             }
-            return result.Id;
+            return new ApiAccountSuccessResult<bool>();
+        }
+        public async Task<ApiResult<bool>> Update(long id,UpdateUserModel request)
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Email == request.Email);
+            if (user != null) return new ApiErrorResult<bool>("Email đã tồn tại");
+            var userphone = _context.Users.FirstOrDefault(x => x.PhoneNumber == request.PhoneNumber);
+            if (userphone != null) return new ApiErrorResult<bool>("Phonenumber đã tồn tại");
+            try
+            {
+                var Itemid = _userRepositories.GetById(id);
+                Itemid.Name = request.Name;
+                Itemid.Dob = request.Dob;
+                Itemid.PhoneNumber = request.PhoneNumber;
+                Itemid.Email = request.Email;
+                Itemid.Gt = request.Gt;
+                await _unitOfWork.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+            }
+            return new ApiAccountSuccessResult<bool>();
         }
         private async Task<User> BuildUrl(User obj)
         {
@@ -83,6 +114,7 @@ namespace ApplicationService.Catalog.Users
             try
             {
                 var result = _userRepositories.GetById(id);
+                if (result == null) throw new ManagerException($"cannot find a user:{id}");
                 _userRepositories.Remove(result);
                 await _unitOfWork.SaveChangesAsync();
                 check = true;
@@ -94,9 +126,32 @@ namespace ApplicationService.Catalog.Users
             return check;
         }
 
-        public Task<long> Update(UpdateUserModel request)
+        public async Task<FilterResult<UserModelPading>> GetPading(FilterResource filterResource)
         {
-            throw new NotImplementedException();
+            var query = from u in _context.Users
+                        select new {u};
+            int totalRow = await query.CountAsync();
+            var data = await query.DefaultIfEmpty()
+                .Select(x => new UserModelPading()
+                {
+                    Id = x.u.Id,
+                    Name=x.u.Name,
+                    Dob=x.u.Dob,
+                    Email=x.u.Email,
+                    Gt=x.u.Gt,
+                    PhoneNumber=x.u.PhoneNumber,
+                    UserName=x.u.UserName
+                    
+                }).ToListAsync();
+            var result = new FilterResult<UserModelPading>()
+            {
+                TotalRows=totalRow,
+                PageIndex = filterResource.PageIndex,
+                PageSize = filterResource.PageSize,
+                ItemsData = data
+            };
+
+            return result;
         }
     }
 }

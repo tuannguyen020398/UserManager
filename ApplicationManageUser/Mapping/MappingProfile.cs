@@ -9,6 +9,7 @@ namespace ApplicationManageUser.Mapping
         public MappingProfile()
         {
             CreateMap<CreateUserModel,User>();
+            CreateMap<User, UserModelPading>();
 
         }
     }

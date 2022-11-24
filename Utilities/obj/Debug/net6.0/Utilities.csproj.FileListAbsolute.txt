@@ -1,0 +1,12 @@
+D:\Demo\ApplicationManageUser\Utilities\bin\Debug\net6.0\Utilities.deps.json
+D:\Demo\ApplicationManageUser\Utilities\bin\Debug\net6.0\Utilities.dll
+D:\Demo\ApplicationManageUser\Utilities\bin\Debug\net6.0\Utilities.pdb
+D:\Demo\ApplicationManageUser\Utilities\obj\Debug\net6.0\Utilities.csproj.AssemblyReference.cache
+D:\Demo\ApplicationManageUser\Utilities\obj\Debug\net6.0\Utilities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Demo\ApplicationManageUser\Utilities\obj\Debug\net6.0\Utilities.AssemblyInfoInputs.cache
+D:\Demo\ApplicationManageUser\Utilities\obj\Debug\net6.0\Utilities.AssemblyInfo.cs
+D:\Demo\ApplicationManageUser\Utilities\obj\Debug\net6.0\Utilities.csproj.CoreCompileInputs.cache
+D:\Demo\ApplicationManageUser\Utilities\obj\Debug\net6.0\Utilities.dll
+D:\Demo\ApplicationManageUser\Utilities\obj\Debug\net6.0\refint\Utilities.dll
+D:\Demo\ApplicationManageUser\Utilities\obj\Debug\net6.0\Utilities.pdb
+D:\Demo\ApplicationManageUser\Utilities\obj\Debug\net6.0\ref\Utilities.dll

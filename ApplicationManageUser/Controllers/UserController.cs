@@ -1,5 +1,6 @@
 ﻿using ApplicationService.Catalog.Users;
 using ApplicationService.Model.UserModel;
+using ApplicationService.Resource;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,7 +38,22 @@ namespace ApplicationManageUser.Controllers
             await _userService.Remove(id);
             return Ok(id);
         }
-
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery] FilterResource request)
+        {
+            var result = await _userService.GetPading(request);
+            return Ok(result);
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(long id, [FromForm] UpdateUserModel request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var affectedResult = await _userService.Update(id,request);
+            return Ok(affectedResult);
+        }
 
 
 

@@ -9,6 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using BE.DAL.Repository.UserRepository;
 using ApplicationService.Catalog.Users;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using ApplicationService.Model.UserModel;
 
 namespace OpenProject
 {
@@ -34,6 +37,9 @@ namespace OpenProject
             //services.InitRedisCache(Configuration);
             //UnitOfWork
             services.AddTransient<IUnitOfWork<SystemDbContext>, UnitOfWork<SystemDbContext>>();
+            //services.AddTransient<IValidator<CreateUserModel>, CreateUserValidator>();
+            services.AddControllers()
+            .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserValidator>());
             //swagger
             services.AddSwaggerGen(c =>
             {
