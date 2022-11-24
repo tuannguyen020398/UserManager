@@ -1,0 +1,15 @@
+D:\Demo\ApplicationManageUser\ApplicationService\bin\Debug\net6.0\ApplicationService.deps.json
+D:\Demo\ApplicationManageUser\ApplicationService\bin\Debug\net6.0\ApplicationService.dll
+D:\Demo\ApplicationManageUser\ApplicationService\bin\Debug\net6.0\ApplicationService.pdb
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ApplicationService.csproj.AssemblyReference.cache
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ApplicationService.GeneratedMSBuildEditorConfig.editorconfig
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ApplicationService.AssemblyInfoInputs.cache
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ApplicationService.AssemblyInfo.cs
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ApplicationService.csproj.CoreCompileInputs.cache
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ApplicationService.dll
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\refint\ApplicationService.dll
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ApplicationService.pdb
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ref\ApplicationService.dll
+D:\Demo\ApplicationManageUser\ApplicationService\bin\Debug\net6.0\BE.DAL.dll
+D:\Demo\ApplicationManageUser\ApplicationService\bin\Debug\net6.0\BE.DAL.pdb
+D:\Demo\ApplicationManageUser\ApplicationService\obj\Debug\net6.0\ApplicationService.csproj.CopyComplete

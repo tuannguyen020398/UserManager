@@ -1,0 +1,14 @@
+D:\Demo\ApplicationManageUser\BE.DAL\bin\Debug\net6.0\BE.DAL.deps.json
+D:\Demo\ApplicationManageUser\BE.DAL\bin\Debug\net6.0\BE.DAL.runtimeconfig.json
+D:\Demo\ApplicationManageUser\BE.DAL\bin\Debug\net6.0\BE.DAL.dll
+D:\Demo\ApplicationManageUser\BE.DAL\bin\Debug\net6.0\BE.DAL.pdb
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\BE.DAL.csproj.AssemblyReference.cache
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\BE.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\BE.DAL.AssemblyInfoInputs.cache
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\BE.DAL.AssemblyInfo.cs
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\BE.DAL.csproj.CoreCompileInputs.cache
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\BE.DAL.dll
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\refint\BE.DAL.dll
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\BE.DAL.pdb
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\BE.DAL.genruntimeconfig.cache
+D:\Demo\ApplicationManageUser\BE.DAL\obj\Debug\net6.0\ref\BE.DAL.dll
