@@ -8,7 +8,7 @@ namespace ApplicationService.Common
 {
     public class ApiAccountSuccessResult<T> : ApiResult<T>
     {
-        public ApiAccountSuccessResult(T resultObj, Guid id)
+        public ApiAccountSuccessResult(T resultObj, long id)
         {
             IsSuccessed = true;
             ResultObj = resultObj;

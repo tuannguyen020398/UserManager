@@ -13,6 +13,6 @@ namespace ApplicationService.Common
         public string Message { get; set; }
 
         public T ResultObj { get; set; }
-        public Guid Id { get; set; }
+        public long Id { get; set; }
     }
 }
