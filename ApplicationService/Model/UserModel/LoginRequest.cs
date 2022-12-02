@@ -8,6 +8,11 @@ using System.Xml.Linq;
 
 namespace ApplicationService.Model.UserModel
 {
+    /// <summary>khởi tạo dữu liệu đăng nhập</summary>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public class LoginRequest
     {
         [Display(Name = "Email")]

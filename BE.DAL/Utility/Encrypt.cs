@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 namespace BE.DAL.Utility
 {
+    /// <summary>phương thức chuyển đổi dạng MD5</summary>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public static class Encrypt
     {
         public static string encryption(string txt)

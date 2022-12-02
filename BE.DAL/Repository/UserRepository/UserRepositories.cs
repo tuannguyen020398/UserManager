@@ -11,6 +11,11 @@ using System.Threading.Tasks;
 
 namespace BE.DAL.Repository.UserRepository
 {
+    /// <summary>phương thức reponsitories user</summary>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public class UserRepositories : GenericRepository<User,SystemDbContext>,IUserRepositories
     {
         public UserRepositories(SystemDbContext context,IMapper mapper) : base(context, mapper) 

@@ -13,6 +13,13 @@ using BE.DAL.Utility;
 
 namespace BE.DAL.BaserRepository
 {
+    /// <summary>phương thức khởi tạo lớp base reponsitory</summary>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    /// <typeparam name="TContext">The type of the context.</typeparam>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public class GenericRepository<TEntity, TContext> : IGenericRepository<TEntity, TContext> where TEntity : class where TContext : DbContext
     {
 
@@ -21,6 +28,15 @@ namespace BE.DAL.BaserRepository
         private readonly DbSet<TEntity> _dbSet;
         private readonly long _userId;
         private readonly IMapper _mapper;
+        /// <summary>Gets the by identifier.</summary>
+        /// <param name="keyValues">The key values.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         public TEntity GetById(params object[] keyValues)
         {
             return _dbSet.Find(keyValues);
@@ -35,15 +51,35 @@ namespace BE.DAL.BaserRepository
             //{
             //    _userId = ConvertUtility.ConvertToLong(ClaimHelpers.GetUserId(httpContextAccessor.HttpContext!.User));
             //}
-
             _mapper = mapper;
-
         }
+        /// <summary>phương thức lấy ra danh sách</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
 
+        /// <summary>Filters danh sách theo thuộc  tính</summary>
+        /// <typeparam name="TResource">The type of the resource.</typeparam>
+        /// <param name="pagingParams">The paging parameters.</param>
+        /// <param name="predicates">The predicates.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">pagingParams
+        /// or
+        /// SortExpression require</exception>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         public FilterResult<TResource> Filter<TResource>(PagingParam<TResource> pagingParams, params Expression<Func<TResource, bool>>[] predicates) where TResource : class
         {
             int pageIndex = pagingParams.PageIndex;
@@ -95,6 +131,13 @@ namespace BE.DAL.BaserRepository
             filterResult.Data = source.ToList();
             return filterResult;
         }
+        /// <summary>Adds the asynchronous.</summary>
+        /// <typeparam name="TResource">The type of the resource.</typeparam>
+        /// <param name="resource">The resource.</param>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         public async Task AddAsync<TResource>(TResource resource)
         {
             TEntity entity = _mapper.Map<TResource, TEntity>(resource);
@@ -109,6 +152,15 @@ namespace BE.DAL.BaserRepository
 
             Context.SaveChanges();
         }
+        /// <summary>Gets the by identifier asynchronous.</summary>
+        /// <param name="keyValues">The key values.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         public ValueTask<TEntity> GetByIdAsync(params object[] keyValues)
         {
             return _dbSet.FindAsync(keyValues);
@@ -122,11 +174,24 @@ namespace BE.DAL.BaserRepository
 
             return EntityFrameworkQueryableExtensions.AsNoTracking(_dbSet.Where(predicate));
         }
+        /// <summary>Removes the specified entity.</summary>
+        /// <param name="entity">The entity.</param>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         public void Remove(TEntity entity)
         {
             _dbSet.Remove(entity);
 
         }
+        /// <summary>Updates the audit log.</summary>
+        /// <param name="entity">The entity.</param>
+        /// <param name="isUpdateCreated">if set to <c>true</c> [is update created].</param>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         public void UpdateAuditLog(TEntity entity, bool isUpdateCreated = false)
         {
             if (isUpdateCreated)

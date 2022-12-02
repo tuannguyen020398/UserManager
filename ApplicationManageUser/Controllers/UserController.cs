@@ -10,9 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ApplicationManageUser.Controllers
 {
 
-    /// <summary>
-    ///   <br />
-    /// </summary>
+    /// <summary><br /></summary>
     /// <Modified>
     /// Name Date Comments
     /// tuannx 11/25/2022 created
@@ -43,6 +41,14 @@ namespace ApplicationManageUser.Controllers
 
             return Ok(result);
         }
+        /// <summary>lấy danh sách user</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         [HttpGet]
         public async Task<IActionResult> List()
         {
@@ -50,6 +56,15 @@ namespace ApplicationManageUser.Controllers
             return Ok(result);
 
         }
+        /// <summary>thêm mới user</summary>
+        /// <param name="request">The request.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateUserModel request)
         {
@@ -60,6 +75,15 @@ namespace ApplicationManageUser.Controllers
             var userid = await _userService.Create(request);
             return Ok(userid);
         }
+        /// <summary>Xóa user</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         [HttpDelete]
         public async Task<ActionResult<long>> Delete(long id)
         {
@@ -72,22 +96,47 @@ namespace ApplicationManageUser.Controllers
             var result = await _userService.GetPading(request);
             return Ok(result);
         }
+        /// <summary>Cập nhật thông tin user</summary>
+        /// <param name="request">The request.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateUserModel request)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
             var affectedResult = await _userService.Update(request);
             return Ok(affectedResult);
         }
+        /// <summary>lấy thuộc tính user theo id</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         [HttpGet("id")]
         public async Task<User> GetByid(long id)
         {
             var reqs =await _userService.GetByid(id);
             return reqs;
         }
+        /// <summary>lấy dánh sách user theo keywwork và giới tính</summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
+        /// <Modified>
+        /// Name Date Comments
+        /// tuannx 12/1/2022 created
+        /// </Modified>
         [HttpGet("keywork")]
         //[BnDAuthorize(ModuleEnum.Event, SystemPermissions.Allow)]
         public ActionResult<FilterResult<UserModelPading>> GetAll([FromQuery] FilterUserResource filter)

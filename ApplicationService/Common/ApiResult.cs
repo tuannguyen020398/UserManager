@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace ApplicationService.Common
 {
+    /// <summary>
+    ///   <para>base apiResult </para>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public class ApiResult<T>
     {
         public bool IsSuccessed { get; set; }

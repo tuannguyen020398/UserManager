@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace ApplicationService.Common
 {
+    /// <summary>
+    ///   <para>return api errorResult </para>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public class ApiErrorResult<T> : ApiResult<T>
     {
         public string[] ValidationErrors { get; set; }

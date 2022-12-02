@@ -9,6 +9,11 @@ using System.Xml.Linq;
 
 namespace ApplicationService.Model.UserModel
 {
+    /// <summary>khởi tạo thuộc tính của user</summary>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public class UserModelPading
     {
         [Display(Name = "Tài Khoản")]

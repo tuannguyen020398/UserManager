@@ -9,6 +9,11 @@ using System.Xml.Linq;
 
 namespace ApplicationService.Model.UserModel
 {
+    /// <summary>khởi tao dữ liệu để thêm mới user</summary>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public class CreateUserModel
     {
         public long Id { get; set; }
@@ -28,6 +33,8 @@ namespace ApplicationService.Model.UserModel
         [Display(Name = "Mật Khẩu")]
         [DataType(DataType.Password)]
         public string? PasswordHash { get; set; }
+        [Display(Name = "Nhập lại Mật Khẩu")]
+        public string? Passwordagain { get; set; }
 
     }
 }

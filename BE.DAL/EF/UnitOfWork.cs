@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLog;
+using BE.DAL.Utility;
 
 namespace BE.DAL.EF
 {
@@ -19,6 +22,7 @@ namespace BE.DAL.EF
     public class UnitOfWork<TContext> : IDisposable, IUnitOfWork<TContext> where TContext : DbContext
     {
         //private readonly ILogger _logger;
+        private Logger _logger = new Log().GetLogger();
         private TContext _context;
 
         /// <summary>
@@ -27,6 +31,7 @@ namespace BE.DAL.EF
         /// <param name="context"></param>
         public UnitOfWork(TContext context)
         {
+            
             this._context = context;
             //_logger = logger;
         }
@@ -41,15 +46,15 @@ namespace BE.DAL.EF
         /// <returns></returns>
         public async Task<int> SaveChangesAsync()
         {
-            //try
-            //{
-            //    return await _context.SaveChangesAsync();
-            //}
-            //catch (Exception ex)
-            //{
-            //    _logger.LogError(ex.Message);
-            //    throw;
-            //}
+            try
+            {
+                return await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex.Message);
+                throw;
+            }
             return await _context.SaveChangesAsync();
         }
 

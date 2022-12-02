@@ -9,6 +9,11 @@ using System.Xml.Linq;
 
 namespace ApplicationService.Model.UserModel
 {
+    /// <summary>khởi tạo dữ liệu user</summary>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public class ViewUserModel
     {
         public long Id { get; set; }

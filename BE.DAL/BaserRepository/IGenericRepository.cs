@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 
 namespace BE.DAL.BaserRepository
 {
+    /// <summary>interface base GenericRepository</summary>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+    /// <typeparam name="TContext">The type of the context.</typeparam>
+    /// <Modified>
+    /// Name Date Comments
+    /// tuannx 12/1/2022 created
+    /// </Modified>
     public interface IGenericRepository<TEntity, TContext> where TEntity : class
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
