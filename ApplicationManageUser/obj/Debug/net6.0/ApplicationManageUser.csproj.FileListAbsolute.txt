@@ -90,3 +90,4 @@ D:\Demo\ApplicationManageUser\ApplicationManageUser\bin\Debug\net6.0\FluentValid
 D:\Demo\ApplicationManageUser\ApplicationManageUser\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 D:\Demo\ApplicationManageUser\ApplicationManageUser\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 D:\Demo\ApplicationManageUser\ApplicationManageUser\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Demo\ApplicationManageUser\ApplicationManageUser\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

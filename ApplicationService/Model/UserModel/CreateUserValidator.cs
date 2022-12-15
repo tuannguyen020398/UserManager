@@ -18,27 +18,27 @@ namespace ApplicationService.Model.UserModel
         public CreateUserValidator()
         {
             //kiểm tra độ dài name và check null
-            RuleFor(x => x.Name).NotEmpty().NotNull().WithMessage("First name is required")
-                .MaximumLength(200).WithMessage("First name can not over 200 characters");
+            RuleFor(x => x.Name).NotEmpty().NotNull().WithMessage("Tên không được để trống")
+                .MaximumLength(200).WithMessage("Tên không được vượt quá 200 kí tự");
             // kiểm tra phonenumber
-            RuleFor(x => x.PhoneNumber).NotEmpty().WithMessage("First phonenumber is required")
-                .MaximumLength(10).WithMessage("First phone can not over 10 character");
+            RuleFor(x => x.PhoneNumber).NotEmpty().WithMessage("Điện thoại không được để trống")
+                .MaximumLength(10).WithMessage("Điện thoại tối đa 10 kí tự");
                 //.Matches(new Regex(@"((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}")).WithMessage("Phonenumber not valid");
             // kiểm tra ngày sinh không vượt quá 100 tuổi và lớn hơn 18 
-            RuleFor(x => x.Dob).GreaterThan(DateTime.Now.AddYears(-100)).WithMessage("Birthday cannot greater than 100 years")
-                .LessThan(DateTime.Now.AddYears(-18)).WithMessage("Birthday cannot greater short 18 years");
+            RuleFor(x => x.Dob).GreaterThan(DateTime.Now.AddYears(-100)).WithMessage("Sinh nhật không thể lớn hơn 100 năm")
+                .LessThan(DateTime.Now.AddYears(-18)).WithMessage("Chưa đủ 18 tuổi");
 
-            RuleFor(x => x.Gt).NotEmpty().NotNull().WithMessage("Gt is required");
+            //RuleFor(x => x.Gt).NotEmpty().NotNull().WithMessage("Gt is required");
             // kiểm tra email
-            RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required")
+            RuleFor(x => x.Email)
                 .Matches(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")
-                .WithMessage("Email format not match");
+                .WithMessage("Email không đúng");
             // kiểm tra tên tài khoản
-            RuleFor(x => x.UserName).NotNull().NotEmpty().WithMessage("UserName is requied")
-                .MaximumLength(60).WithMessage("UserName can not over 60 charaters");
+            RuleFor(x => x.UserName).NotNull().NotEmpty().WithMessage("Tên không được để trống")
+                .MaximumLength(60).WithMessage("Tên không vượt quá 60 kí tự");
             // kiểm tra mật khẩu
-            RuleFor(x => x.PasswordHash).NotEmpty().WithMessage("Password is required")
-                .MinimumLength(6).WithMessage("Password is at least 6 characters");
+            RuleFor(x => x.PasswordHash).NotEmpty().WithMessage("mật khẩu không được để trống")
+                .MinimumLength(6).WithMessage("mật khẩu phải từ 6 kí tự trở lên");
 
         }
     }

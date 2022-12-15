@@ -9,6 +9,9 @@
     <Folder Include="BE.DAL\" />
     <Folder Include="Application\" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ApplicationService\ApplicationService.csproj" />

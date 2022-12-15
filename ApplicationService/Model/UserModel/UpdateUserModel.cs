@@ -27,6 +27,14 @@ namespace ApplicationService.Model.UserModel
         [Display(Name = "Email")]
         public string? Email { get; set; }
         [Display(Name = "Giới tính")]
-        public GtStatus? Gt { get; set; }       
+        public SexStatus? Sex { get; set; }
+        [Display(Name = "Ngày tạo")]
+        public DateTime DateCreated { set; get; }
+        [Display(Name = "Cập nhật cuối")]
+        public DateTime LastUpdate { set; get; }
+        [Display(Name = "Trạng thái")]
+        public ActiveStatus? Status { get; set; }
+
+
     }
 }

@@ -16,7 +16,7 @@ namespace ApplicationManageUser.Mapping
         {
             CreateMap<CreateUserModel,User>();
             CreateMap<User, UserModelPading>();
-
+            CreateMap<UpdateUserModel, User>();
         }
     }
 }

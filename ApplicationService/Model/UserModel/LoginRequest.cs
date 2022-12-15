@@ -15,8 +15,8 @@ namespace ApplicationService.Model.UserModel
     /// </Modified>
     public class LoginRequest
     {
-        [Display(Name = "Email")]
-        public string? Email { get; set; }
+        [Display(Name = "Tài Khoản")]
+        public string? UserName { get; set; }
 
         [Display(Name = "Mật khẩu")]
         public string? Password { get; set; }

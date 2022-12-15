@@ -14,7 +14,10 @@ namespace BE.DAL.Entities
         public DateTime Dob { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Email { get; set; }
-        public GtStatus? Gt { get; set; }
+        public SexStatus? Sex { get; set; }
+        public DateTime DateCreated { set; get; }
+        public DateTime LastUpdate { set; get; }
+        public ActiveStatus? Status { get; set; }
         public string? UserName { get; set; }
         public string? PasswordHash { get; set; }
     }

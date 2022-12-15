@@ -25,7 +25,8 @@ namespace BE.DAL.EF
             {
                 x.ToTable("Users");
                 x.HasKey(x => x.Id);
-
+                x.Property(x => x.UserName).IsRequired().HasMaxLength(200);
+                x.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(20).IsUnicode(false);
             });
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }

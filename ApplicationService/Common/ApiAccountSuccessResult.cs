@@ -19,7 +19,7 @@ namespace ApplicationService.Common
         {
             IsSuccessed = true;
             ResultObj = resultObj;
-            Id = id;
+            Id= id;
         }
         //them
         public ApiAccountSuccessResult(string message)

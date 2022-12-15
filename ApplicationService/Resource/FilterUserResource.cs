@@ -18,26 +18,35 @@ namespace ApplicationService.Resource
     public class FilterUserResource: PagingParam<UserModelPading>
     {
         public string? Keywork { get; set; }
-        public GtStatus ? Count { get; set; }
-        public DateTime? Dob { get; set; }
+        public SexStatus ? Count { get; set; }
+        public DateTime? StartDob { get; set; }
+        public DateTime? EndDob{ get; set; }
         public override List<Expression<Func<UserModelPading, bool>>> GetPredicates()
         {
+
             var filter = base.GetPredicates();
+
             // filter theo keywwork
             if (!string.IsNullOrEmpty(Keywork))
             {
-                filter.Add(x => x.Name.ToLower().Contains(Keywork.ToLower()));
+                filter.Add(x => x.Name!.ToLower().Contains(Keywork.ToLower()) || x.Email!.ToLower().Contains(Keywork.ToLower()));                
             }
+            //
             //filter theo giới tính
-            if (Count!=null)
+            if (Count != null)
             {
-                filter.Add(x => x.Gt==Count);
+                filter.Add(x => x.Sex == Count);
             }
-            if (Dob != null)
+            //filter date dob
+            if (StartDob.HasValue)
             {
-                filter.Add(x => x.Dob == Dob);
+                filter.Add(x => x.Dob >= StartDob.Value);
             }
-            
+            if (EndDob.HasValue)
+            {
+                filter.Add(x => x.Dob <= EndDob.Value);
+            }
+            filter.Add(x => x.Status == 0);
 
             return filter;
         }

@@ -17,6 +17,7 @@ namespace ApplicationManageUser.Controllers
     /// </Modified>
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]// xác thực đăng nhập
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -25,7 +26,7 @@ namespace ApplicationManageUser.Controllers
             this._userService = userService;
         }
         [HttpPost("authenticate")]
-        //[AllowAnonymous]
+        [AllowAnonymous]//public
         //[Authorize]
         public async Task<IActionResult> Authenticate([FromBody] LoginRequest request)
         {
@@ -49,7 +50,7 @@ namespace ApplicationManageUser.Controllers
         /// Name Date Comments
         /// tuannx 12/1/2022 created
         /// </Modified>
-        [HttpGet]
+        [HttpGet]       
         public async Task<IActionResult> List()
         {
             var result = await _userService.GetAll();
@@ -137,10 +138,13 @@ namespace ApplicationManageUser.Controllers
         /// Name Date Comments
         /// tuannx 12/1/2022 created
         /// </Modified>
-        [HttpGet("keywork")]
-        //[BnDAuthorize(ModuleEnum.Event, SystemPermissions.Allow)]
-        public ActionResult<FilterResult<UserModelPading>> GetAll([FromQuery] FilterUserResource filter)
+        [HttpPost("keywork")]
+        
+        
+        public ActionResult<FilterResult<UserModelPading>> Filter([FromBody] FilterUserResource filter)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             var res = _userService.GetkeyworkPading(filter);
             return Ok(res);
         }

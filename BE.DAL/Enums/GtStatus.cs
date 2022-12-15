@@ -11,10 +11,15 @@ namespace BE.DAL.Enums
     /// Name Date Comments
     /// tuannx 12/1/2022 created
     /// </Modified>
-    public enum GtStatus
+    public enum SexStatus
     {
         male,
         female,
         other
+    }
+    public enum ActiveStatus
+    {
+        active,
+        unactive
     }
 }
